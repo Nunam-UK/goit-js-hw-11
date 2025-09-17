@@ -7,6 +7,8 @@ const galleryEl = document.querySelector('.gallery');
 
 const loaderEl = document.querySelector('.loader');
 
+const simplelightbox = new SimpleLightbox('.gallery a');
+
 export function createGallery(images) {
   const markup = images
     .map(
@@ -48,11 +50,8 @@ export function createGallery(images) {
       }
     )
     .join('');
-  console.log(markup);
 
   galleryEl.innerHTML = markup;
-
-  const simplelightbox = new SimpleLightbox('.gallery a');
 
   simplelightbox.refresh();
 }

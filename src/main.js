@@ -18,25 +18,30 @@ formEL.addEventListener('submit', onSubmit);
 function onSubmit(event) {
   event.preventDefault();
 
+  showLoader();
+  clearGallery();
+
   const inputQuerry = event.currentTarget.elements['search-text'].value.trim();
   if (inputQuerry === '') {
     iziToast.error({
       message: 'Search input can`t be empty',
     });
+    setTimeout(() => {
+      hideLoader();
+    }, 500);
+
     event.target.reset();
     return;
   }
 
-  showLoader();
-  clearGallery();
   getImagesByQuery(inputQuerry)
     .then(response => {
-      if (response.data.hits.length === 0) {
+      if (response.hits.length === 0) {
         throw new Error(
           'Sorry, there are no images matching your search query. Please try again!'
         );
       }
-      createGallery(response.data.hits);
+      createGallery(response.hits);
     })
     .catch(error => {
       iziToast.error({

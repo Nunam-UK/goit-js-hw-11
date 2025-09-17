@@ -8,10 +8,6 @@
 @import url('./reset.css');
 @import url('./base.css');
 
-.hidden {
-  display: none;
-}
-
 body {
   margin: 20px;
   background: #fff;
@@ -64,6 +60,10 @@ body {
   font-size: 18px;
   margin: 20px 0;
   display: block;
+}
+
+.loader.hidden {
+  display: none;
 }
 
 .form button {

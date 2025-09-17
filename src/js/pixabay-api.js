@@ -12,5 +12,5 @@ export function getImagesByQuery(q) {
     safesearch: true,
   };
 
-  return axios.get('', { params });
+  return axios.get('', { params }).then(response => response.data);
 }
