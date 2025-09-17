@@ -1,5 +1,5 @@
 import axios from 'axios';
-const BASE_URL = 'https://pixabay.com';
+const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '52321579-5376ad108ad3c10360339b813';
 axios.defaults.baseURL = BASE_URL;
 
@@ -12,5 +12,5 @@ export function getImagesByQuery(q) {
     safesearch: true,
   };
 
-  return axios.get('/api', { params });
+  return axios.get('', { params });
 }
